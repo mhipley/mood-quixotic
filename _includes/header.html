@@ -1,18 +1,44 @@
 <header class="site-header">
 
   <div class="wrapper">
+  	<div class="browser-nav">
+	  	<ul>
+			<li class="back"><a class="page-link" href="/"><span class="icon icon-back"></span></a></li>
+			<li class="forward"><a class="page-link" href="/edis_room/"><span class="icon icon-forward"></span></a></li>
+			<li class="reload"><a href="."><span class="icon icon-reload"></span</a></li>
+			<li class="stop"><a href="#" onClick="window.stop()"><span class="icon icon-stopsign"></span></a></li>
+			<li class="home"><a class="page-link" href="/"><span class="icon icon-home"></span></a></li>
+	  	</ul>
 
-       <nav class="site-nav">
+	  	<div class="search">
+	  		<input type="search"></input>
+	  		<span class="icon icon-search"></span>
+	  	</div>
+
+	  	<span class="icon icon-window-close"></span>
+	 </div>
+	<div class="browser-tabs">
+     <nav class="site-nav">
 
 
       <div class="trigger">
-        
-          <a class="page-link" href="/">theTourist31</a>
-          <a class="page-link" href="/edis_room/">edis_room</a>
+        <ul>
+        	<li><a class="page-link" href="/">theTourist31</a> <span class="icon icon-circle-close"></span></li>
+	        <li><a class="page-link" href="/edis_room/">edis_room</a> <span class="icon icon-circle-close"></span></li>
+	    </ul>
         
       </div>
     </nav>
-
+	</div>
   </div>
-
+<script>
+$(document).ready(function() {
+    $("[href]").each(function() {
+    if (this.href == window.location.href) {
+        $(this).children(".icon").addClass("active");
+        $(this).parent("li").addClass("active");
+        }
+    });
+});
+</script>
 </header>
