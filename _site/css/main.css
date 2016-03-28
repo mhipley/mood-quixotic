@@ -484,6 +484,38 @@ pre {
     position: relative;
     float: right;
     right: -.25em; }
+  .icon-up {
+    background: url(/icons/up.gif);
+    width: 25px; }
+  .icon-right {
+    background: url(/icons/right.gif);
+    width: 25px; }
+  .icon-down {
+    background: url(/icons/down.gif);
+    width: 25px; }
+  .icon-left {
+    background: url(/icons/left.gif);
+    width: 25px; }
+  .icon-reset {
+    background: url(/icons/reset.gif);
+    width: 25px; }
+
+/**
+ * WEBCAM
+ */
+.webcam {
+  height: 535px;
+  margin-left: -1em; }
+  .webcam .sidebar {
+    width: 150px;
+    height: 100%;
+    background: rgba(26, 0, 51, 0.2);
+    float: left; }
+  .webcam .threejs {
+    width: calc(100% - 150px);
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    float: left; }
 
 /**
  * Syntax highlighting styles

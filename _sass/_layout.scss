@@ -413,7 +413,48 @@
         float: right;
         right: -.25em;
     }
-
+    &-up {
+        background: url(/icons/up.gif);
+        width: 25px;
+    }
+    &-right {
+        background: url(/icons/right.gif);
+        width: 25px;
+    }
+    &-down {
+        background: url(/icons/down.gif);
+        width: 25px;
+    }
+    &-left {
+        background: url(/icons/left.gif);
+        width: 25px;
+    }   
+    &-reset {
+        background: url(/icons/reset.gif);
+        width: 25px;
+    }
  }
 
+
+/**
+ * WEBCAM
+ */
+
+
+.webcam {
+    height: 535px;
+    margin-left: -1em;
+    .sidebar {
+        width: 150px;
+        height: 100%;
+        background: rgba(26, 0, 51, 0.2);
+        float: left;
+    }
+    .threejs {
+        width: calc(100% - 150px);
+        height: 100%;
+        background: rgba(255, 255, 255, .3);
+        float: left;
+    }
+}
  
