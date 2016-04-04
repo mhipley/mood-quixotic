@@ -4,24 +4,40 @@ layout: default
 <article class="webcam">
 
 <div class="sidebar">
+	<div class="pad-circle"></div>
 	<div class="nav-top">
-		<span class="icon icon-pan-horiz"></span>
+		<span class="icon icon-pan-horiz" id="pan_horiz"></span>
 		<span class="icon icon-screengrab"></span>
-		<span class="icon icon-pan-vert"></span>
+		<span class="icon icon-pan-vert" id="pan_vert"></span>
 	</div>
 	<div class="nav-pad">
-		<span class="icon icon-up"></span>
-		<span class="icon icon-right"></span>
-		<span class="icon icon-down"></span>
-		<span class="icon icon-left"></span>
-		<span class="icon icon-reset"></span>
+		<span class="icon icon-up" id="tilt_up"></span>
+		<span class="icon icon-right" id="tilt_right"></span>
+		<span class="icon icon-down" id="tilt_down"></span>
+		<span class="icon icon-left" id="tilt_left"></span>
+		<span class="icon icon-reset" id="reset"></span>
 	</div>
 	<div class="nav-bottom">
-		<span class="icon icon-zoom-in"></span>
-		<span class="icon icon-zoom-out"></span>
+		<span class="icon icon-zoom-in" id="zoom_in"></span>
+		<span class="icon icon-zoom-out" id="zoom_out"></span>
 	</div>
 </div>
 
-  <div class="threejs"></div>
+<div id="ThreeJS" style="">
+</div>
 
 </article>
+
+
+
+<script type="text/javascript" src="/mood_quixotic/js/skybox.js"></script>
+<script type="text/javascript">
+
+$("#zoom_in").on("click", function(){
+  // call this to make the model larger/ zoom in
+  zoomModel(true, 4);
+
+  // call this to make it smaller / zoom out
+  //zoomModel(false, 4);
+});
+</script>

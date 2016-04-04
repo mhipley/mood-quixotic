@@ -8,17 +8,17 @@ layout: default
     {% for post in site.posts %}
       <li>
         <div class="post-header">
-          <img class="user-icon" src="/icons/{{post.icon}}.png">
+          <img class="user-icon" src="/mood_quixotic/icons/{{post.icon}}.png">
           <ul> 
-            <li>[ mood: quixotic ]</li>
+            <li>[ mood: <span class="icon icon-quixotic"></span> quixotic ]</li>
             <li>[ music: {{ post.music }} ]</li>
             <li>[ subject: {{ post.title }} ]
             <li>[ {{ post.date | date: "%-d  %b, %Y | %X %Z"  }} ]</li>
           </ul>
         </div>
         <div class="post-content">
-          {{ post.excerpt }}
-          <a class="more-link" href="{{ post.url | prepend: site.baseurl }}">[ read more ]</a>
+          {{ post.content }}
+          <!-- <a class="more-link" href="{{ post.url | prepend: site.baseurl }}">[ read more ]</a> -->
         </div>
         <div class="post-footer">
       </li>

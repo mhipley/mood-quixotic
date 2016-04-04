@@ -28,13 +28,13 @@ body {
     width: 800px;
     height: 600px;
     margin: 0 auto;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 .body-wrapper {
     width: 100%;
     height: 100%;
-    background: url(/img/bg-main.gif);
+    background: url(/mood_quixotic/img/bg-main.gif);
     background-size: cover;
 }
 
@@ -60,6 +60,16 @@ input:focus {
     outline:none;
 }
 
+button {
+       -webkit-appearance: none;
+   -moz-appearance:    none;
+   appearance:         none;
+   border: none;
+}
+
+button:focus {
+    outline:none;
+}
 
 ::-webkit-scrollbar {
     width: 1em;

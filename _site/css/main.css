@@ -24,12 +24,12 @@ body {
   width: 800px;
   height: 600px;
   margin: 0 auto;
-  overflow: scroll; }
+  overflow: hidden; }
 
 .body-wrapper {
   width: 100%;
   height: 100%;
-  background: url(/img/bg-main.gif);
+  background: url(/mood_quixotic/img/bg-main.gif);
   background-size: cover; }
 
 /**
@@ -48,6 +48,15 @@ input {
   border: 1px solid rgba(26, 0, 51, 0.4); }
 
 input:focus {
+  outline: none; }
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none; }
+
+button:focus {
   outline: none; }
 
 ::-webkit-scrollbar {
@@ -432,7 +441,7 @@ pre {
   float: left;
   margin: 0 .25em; }
   .icon-back {
-    background: url(/icons/arrow.gif);
+    background: url(/mood_quixotic/icons/arrow.gif);
     width: 25px;
     -moz-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
@@ -448,7 +457,7 @@ pre {
       filter: gray;
       filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale"); }
   .icon-forward {
-    background: url(/icons/arrow.gif);
+    background: url(/mood_quixotic/icons/arrow.gif);
     width: 25px; }
     .icon-forward.active {
       -moz-filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
@@ -457,20 +466,20 @@ pre {
       filter: gray;
       filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale"); }
   .icon-reload {
-    background: url(/icons/reload.gif);
+    background: url(/mood_quixotic/icons/reload.gif);
     width: 30px; }
   .icon-stopsign {
-    background: url(/icons/stopsign.gif);
+    background: url(/mood_quixotic/icons/stopsign.gif);
     width: 25px; }
   .icon-home {
-    background: url(/icons/home.gif);
+    background: url(/mood_quixotic/icons/home.gif);
     width: 25px; }
   .icon-search {
-    background: url(/icons/search.gif);
+    background: url(/mood_quixotic/icons/search.gif);
     width: 25px;
     margin-left: .5em; }
   .icon-window-close {
-    background: url(/icons/squareclose.gif);
+    background: url(/mood_quixotic/icons/squareclose.gif);
     width: 15px;
     height: 15px;
     position: relative;
@@ -478,27 +487,50 @@ pre {
     top: .5em;
     float: right; }
   .icon-circle-close {
-    background: url(/icons/circleclose.gif);
+    background: url(/mood_quixotic/icons/circleclose.gif);
     width: 1em;
     height: 1em;
     position: relative;
     float: right;
     right: -.25em; }
   .icon-up {
-    background: url(/icons/up.gif);
+    background: url(/mood_quixotic/icons/up.gif);
     width: 25px; }
   .icon-right {
-    background: url(/icons/right.gif);
+    background: url(/mood_quixotic/icons/right.gif);
     width: 25px; }
   .icon-down {
-    background: url(/icons/down.gif);
+    background: url(/mood_quixotic/icons/down.gif);
     width: 25px; }
   .icon-left {
-    background: url(/icons/left.gif);
+    background: url(/mood_quixotic/icons/left.gif);
     width: 25px; }
   .icon-reset {
-    background: url(/icons/reset.gif);
+    background: url(/mood_quixotic/icons/reset.gif);
     width: 25px; }
+  .icon-pan-horiz {
+    background: url(/mood_quixotic/icons/panwidth.gif);
+    width: 25px; }
+  .icon-pan-vert {
+    background: url(/mood_quixotic/icons/panheight.gif);
+    width: 25px; }
+  .icon-screengrab {
+    background: url(/mood_quixotic/icons/screengrab.gif);
+    width: 25px;
+    visibility: hidden; }
+  .icon-zoom-in {
+    background: url(/mood_quixotic/icons/zoomin.gif);
+    width: 50px; }
+  .icon-zoom-out {
+    background: url(/mood_quixotic/icons/zoomout.gif);
+    width: 50px; }
+  .icon-quixotic {
+    background: url(/mood_quixotic/icons/quixotic.png);
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+    float: none;
+    margin: 0 .12em; }
 
 /**
  * WEBCAM
@@ -510,12 +542,52 @@ pre {
     width: 150px;
     height: 100%;
     background: rgba(26, 0, 51, 0.2);
-    float: left; }
-  .webcam .threejs {
+    float: left;
+    position: relative; }
+    .webcam .sidebar .nav-top {
+      position: absolute;
+      top: 12px;
+      margin: 0 27.5px;
+      width: 95px; }
+    .webcam .sidebar .nav-pad {
+      position: absolute;
+      top: 40px;
+      width: 85px;
+      margin: 0 32.5px; }
+      .webcam .sidebar .nav-pad .icon {
+        position: absolute;
+        margin-left: 0; }
+      .webcam .sidebar .nav-pad .icon-up, .webcam .sidebar .nav-pad .icon-down, .webcam .sidebar .nav-pad .icon-reset {
+        left: 30px; }
+      .webcam .sidebar .nav-pad .icon-left, .webcam .sidebar .nav-pad .icon-right, .webcam .sidebar .nav-pad .icon-reset {
+        top: 30px; }
+      .webcam .sidebar .nav-pad .icon-down {
+        top: 60px; }
+      .webcam .sidebar .nav-pad .icon-right {
+        left: 60px; }
+    .webcam .sidebar .nav-bottom {
+      position: relative;
+      width: 116px;
+      margin: 0 17px;
+      top: 130px; }
+      .webcam .sidebar .nav-bottom .icon-zoom-in {
+        float: left; }
+      .webcam .sidebar .nav-bottom .icon-zoom-out {
+        float: right; }
+    .webcam .sidebar .pad-circle {
+      width: 65px;
+      height: 65px;
+      position: absolute;
+      margin: 0 42.5px;
+      top: 48px;
+      background: rgba(243, 255, 238, 0.8);
+      border-radius: 33px; }
+  .webcam #ThreeJS {
     width: calc(100% - 150px);
     height: 100%;
     background: rgba(255, 255, 255, 0.3);
-    float: left; }
+    float: left;
+    left: 150px; }
 
 /**
  * Syntax highlighting styles
