@@ -16,13 +16,16 @@ init();
 animate();
 
 
+
+
 // FUNCTIONS        
 function init() 
 {
+    
 
     var d = new Date();
     var n = d.getHours();
-    console.log(n);
+    var m = d.getDate();
     // SCENE
     scene = new THREE.Scene();
     // CAMERA
@@ -165,7 +168,48 @@ function init()
     // WINDOW SCENE
 
     var moonGeometry = new THREE.PlaneGeometry( 59, 59 );
-    var moonTexture = new THREE.TextureLoader().load( imagePrefix + "moon_03" + imageSuffix );
+    //MOON STUFF
+    if (m > 3 && m < 8) {
+        //full
+        var moonSuffix = "full";
+    }
+
+    else if (m > 7 && m < 10) {
+        //waning gibbous
+        var moonSuffix = "wangib";
+    }
+
+    else if (m > 9 && m < 13) {
+        //last quarter (looks half)
+        var moonSuffix = "lastq";
+    }
+
+    else if (m > 12 && m < 18) {
+        //waning crescent
+        var moonSuffix = "wancres";
+    }
+
+    else if (m > 17 && m < 21) {
+        //no moon
+        var moonSuffix = "no";
+    }
+
+    else if (m > 20 && m < 26) {
+        //waxing crescent
+        var moonSuffix = "waxcres";
+    }
+
+    else if (m > 25 && m < 29) {
+        //first quarter
+        var moonSuffix = "firstq";
+    }
+
+    else {
+        //waxing gibbous
+        var moonSuffix = "waxgib";
+    }    
+
+    var moonTexture = new THREE.TextureLoader().load( imagePrefix + "moon_" + moonSuffix + imageSuffix );
     var moonMaterial = new THREE.MeshBasicMaterial( {
         map: moonTexture,
         transparent:true, 
@@ -173,7 +217,47 @@ function init()
     } );
     var moon = new THREE.Mesh(moonGeometry, moonMaterial );
     moon.position.set(-410, 195, -410);
-    
+
+    // PLANTS
+
+    var budGeometry = new THREE.PlaneGeometry(30, 31);
+    var budTexture = new THREE.TextureLoader().load( imagePrefix + "bud" + imageSuffix );
+    var budMaterial = new THREE.MeshBasicMaterial( {
+        map: budTexture,
+        transparent:true, 
+        overdraw: true,
+    } );
+    budMaterial.alphaTest = 0.5;
+    var bud = new THREE.Mesh(budGeometry, budMaterial );
+    bud.position.set(-415, 135, -419);
+    bud.rotation.z = - Math.PI / 8;
+    scene.add(bud);
+
+    var leaf1Geometry = new THREE.PlaneGeometry(30, 31);
+    var leaf1Texture = new THREE.TextureLoader().load( imagePrefix + "leaf1" + imageSuffix );
+    var leaf1Material = new THREE.MeshBasicMaterial( {
+        map: leaf1Texture,
+        transparent:true, 
+        overdraw: true,
+    } );
+    leaf1Material.alphaTest = 0.5;
+    var leaf1 = new THREE.Mesh(leaf1Geometry, leaf1Material );
+    leaf1.position.set(-495, 220, -419);
+    leaf1.rotation.z = - Math.PI / 8;
+    scene.add(leaf1);    
+
+    var leaf2Geometry = new THREE.PlaneGeometry(30, 22);
+    var leaf2Texture = new THREE.TextureLoader().load( imagePrefix + "leaf2" + imageSuffix );
+    var leaf2Material = new THREE.MeshBasicMaterial( {
+        map: leaf2Texture,
+        transparent:true, 
+        overdraw: true,
+    } );
+    leaf2Material.alphaTest = 0.5;
+    var leaf2 = new THREE.Mesh(leaf2Geometry, leaf2Material );
+    leaf2.position.set(-565, 200, -419);
+    leaf2.rotation.z =  Math.PI / 8;
+    scene.add(leaf2);        
 
     var treeGeometry = new THREE.PlaneGeometry( 344, 392 );
     var treeTexture = new THREE.TextureLoader().load( imagePrefix + "branch" + imageSuffix );
@@ -250,7 +334,7 @@ function init()
     var cd = new THREE.Mesh( cdGeometry, cdMaterial );
     cd.rotation.x = -  Math.PI / 2;
     cd.rotation.z = -  Math.PI / 8;
-    cd.position.set(20, -256, 220);
+    cd.position.set(40, -256, 220);
     scene.add(cd);
 
     var cdCoverGeometry = new THREE.PlaneGeometry( 75, 75);
@@ -262,11 +346,39 @@ function init()
     var cdCover = new THREE.Mesh( cdCoverGeometry, cdCoverMaterial );
     cdCover.rotation.x = -  Math.PI / 2;
     cdCover.rotation.z =  - (Math.PI) - (Math.PI / 8) ;
-    cdCover.position.set(20, -250, 220);
+    cdCover.position.set(40, -250, 220);
     scene.add(cdCover);
 
+    var cd2 = new THREE.Mesh( cdGeometry.clone(), cdMaterial );
+    cd2.rotation.x = -  Math.PI / 2;
+    cd2.rotation.z =  Math.PI / 8;
+    cd2.position.set(80, -245, 215);
+    scene.add(cd2);
 
 
+    var cdCoverTexture2 = new THREE.TextureLoader().load( imagePrefix + "cd_blur" + imageSuffix );
+    var cdCoverMaterial2 = new THREE.MeshBasicMaterial( {
+        map: cdCoverTexture2,
+        overdraw: true,
+    } );
+    var cdCover2 = new THREE.Mesh( cdCoverGeometry.clone(), cdCoverMaterial2 );
+    cdCover2.rotation.x = -  Math.PI / 2;
+    cdCover2.rotation.z =  - (Math.PI) + (Math.PI / 8) ;
+    cdCover2.position.set(80, -239, 215);
+    scene.add(cdCover2);    
+
+    var pennantGeometry = new THREE.PlaneGeometry( 100, 179 );
+    var pennantTexture = new THREE.TextureLoader().load( imagePrefix + "pennant" + imageSuffix );
+    var pennantMaterial = new THREE.MeshBasicMaterial( {
+        map: pennantTexture,
+        transparent:true,
+        overdraw: true
+    } );   
+    pennantMaterial.alphaTest = 0.5;
+    var pennant = new THREE.Mesh( pennantGeometry, pennantMaterial ); 
+    pennant.rotation.y =   Math.PI / 2;
+    pennant.position.set(-599, 50, -220);
+    scene.add(pennant);
 
     document.getElementById('reset').addEventListener('click', resetcamera);
     document.getElementById('zoom_in').addEventListener('click', zoomIn);
@@ -278,6 +390,8 @@ function init()
     document.getElementById('pan_horiz').addEventListener('click', panHoriz);
     document.getElementById('pan_vert').addEventListener('click', panVert);
 
+
+
     if (n > 6 && n < 20){
         scene.add( tree );
         scene.add( daySky ); 
@@ -285,7 +399,10 @@ function init()
     }
 
     else {
-        scene.add( moon ); 
+        if (m < 18 || m > 20) {
+            scene.add( moon ); 
+        }
+        
         scene.add( tree ); 
         scene.add( nightSky ); 
 
