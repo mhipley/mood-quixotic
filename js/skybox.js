@@ -220,18 +220,18 @@ function init()
 
     // PLANTS
 
-    var budGeometry = new THREE.PlaneGeometry(30, 31);
-    var budTexture = new THREE.TextureLoader().load( imagePrefix + "bud" + imageSuffix );
-    var budMaterial = new THREE.MeshBasicMaterial( {
-        map: budTexture,
-        transparent:true, 
-        overdraw: true,
-    } );
-    budMaterial.alphaTest = 0.5;
-    var bud = new THREE.Mesh(budGeometry, budMaterial );
-    bud.position.set(-415, 135, -419);
-    bud.rotation.z = - Math.PI / 8;
-    scene.add(bud);
+    // var budGeometry = new THREE.PlaneGeometry(30, 31);
+    // var budTexture = new THREE.TextureLoader().load( imagePrefix + "bud" + imageSuffix );
+    // var budMaterial = new THREE.MeshBasicMaterial( {
+    //     map: budTexture,
+    //     transparent:true, 
+    //     overdraw: true,
+    // } );
+    // budMaterial.alphaTest = 0.5;
+    // var bud = new THREE.Mesh(budGeometry, budMaterial );
+    // bud.position.set(-415, 135, -419);
+    // bud.rotation.z = - Math.PI / 8;
+    // scene.add(bud);
 
     var leaf1Geometry = new THREE.PlaneGeometry(30, 31);
     var leaf1Texture = new THREE.TextureLoader().load( imagePrefix + "leaf1" + imageSuffix );
@@ -244,7 +244,7 @@ function init()
     var leaf1 = new THREE.Mesh(leaf1Geometry, leaf1Material );
     leaf1.position.set(-495, 220, -419);
     leaf1.rotation.z = - Math.PI / 8;
-    scene.add(leaf1);    
+    // scene.add(leaf1);    
 
     var leaf2Geometry = new THREE.PlaneGeometry(30, 22);
     var leaf2Texture = new THREE.TextureLoader().load( imagePrefix + "leaf2" + imageSuffix );
@@ -257,7 +257,106 @@ function init()
     var leaf2 = new THREE.Mesh(leaf2Geometry, leaf2Material );
     leaf2.position.set(-565, 200, -419);
     leaf2.rotation.z =  Math.PI / 8;
-    scene.add(leaf2);        
+    // scene.add(leaf2);     
+
+    var leaf3Geometry = new THREE.PlaneGeometry(30, 73);
+    var leaf3Texture = new THREE.TextureLoader().load( imagePrefix + "leaf3" + imageSuffix );
+    var leaf3Material = new THREE.MeshBasicMaterial( {
+        map: leaf3Texture,
+        transparent:true, 
+        overdraw: true,
+    } );
+    leaf3Material.alphaTest = 0.5;
+    var leaf3 = new THREE.Mesh(leaf3Geometry, leaf3Material );
+    leaf3.position.set(-365, 60, -419);
+    leaf3.rotation.z = - Math.PI / 8;
+
+    var leaf4Geometry = new THREE.PlaneGeometry(40, 43);
+    var leaf4Texture = new THREE.TextureLoader().load( imagePrefix + "leaf4" + imageSuffix );
+    var leaf4Material = new THREE.MeshBasicMaterial( {
+        map: leaf4Texture,
+        transparent:true, 
+        overdraw: true,
+    } );
+    leaf4Material.alphaTest = 0.5;
+    var leaf4 = new THREE.Mesh(leaf4Geometry, leaf4Material );
+    leaf4.position.set(-455, 12, -419);
+    leaf4.rotation.z = - Math.PI / 8;
+
+    var leaf5Geometry = new THREE.PlaneGeometry(50, 30);
+    var leaf5Texture = new THREE.TextureLoader().load( imagePrefix + "leaf5" + imageSuffix );
+    var leaf5Material = new THREE.MeshBasicMaterial( {
+        map: leaf5Texture,
+        transparent:true, 
+        overdraw: true,
+    } );
+    leaf5Material.alphaTest = 0.5;
+    var leaf5 = new THREE.Mesh(leaf5Geometry, leaf5Material );
+    leaf5.position.set(-525, 150, -419);
+    leaf5.rotation.z = - Math.PI / 8;
+
+    var leaf6Geometry = new THREE.PlaneGeometry(30, 38);
+    var leaf6Texture = new THREE.TextureLoader().load( imagePrefix + "leaf6" + imageSuffix );
+    var leaf6Material = new THREE.MeshBasicMaterial( {
+        map: leaf6Texture,
+        transparent:true, 
+        overdraw: true,
+    } );
+    leaf6Material.alphaTest = 0.5;
+    var leaf6 = new THREE.Mesh(leaf6Geometry, leaf6Material );
+    leaf6.position.set(-505, 170, -419);
+    leaf6.rotation.z = 0;
+
+    var leaf7Geometry = new THREE.PlaneGeometry(50, 46);
+    var leaf7Texture = new THREE.TextureLoader().load( imagePrefix + "leaf7" + imageSuffix );
+    var leaf7Material = new THREE.MeshBasicMaterial( {
+        map: leaf7Texture,
+        transparent:true, 
+        overdraw: true,
+    } );
+    leaf7Material.alphaTest = 0.5;
+    var leaf7 = new THREE.Mesh(leaf7Geometry, leaf7Material );
+    leaf7.position.set(-565, 200, -419);
+    leaf7.rotation.z = 0;            
+
+
+    // scene.add(leaf3);        
+
+if (m > 0 && m < 10) {
+    var flowerSuffix = "_1";
+}
+
+if (m >= 10 && m < 20) {
+    var flowerSuffix = "_2";
+    scene.add(leaf1);  
+    scene.add(leaf2);  
+    scene.add(leaf3);  
+    scene.add(leaf4);  
+    scene.add(leaf5);     
+}
+
+if (m >= 20 && m < 32) {
+    var flowerSuffix = "_3";
+    scene.add(leaf1);  
+    scene.add(leaf3);   
+    scene.add(leaf4);  
+    scene.add(leaf5); 
+    scene.add(leaf6);  
+    scene.add(leaf7);          
+}
+
+    var flowerGeometry = new THREE.PlaneGeometry(77, 50);
+    var flowerTexture = new THREE.TextureLoader().load( imagePrefix + "flower" + flowerSuffix + imageSuffix );
+    var flowerMaterial = new THREE.MeshBasicMaterial( {
+        map: flowerTexture,
+        transparent:true, 
+        overdraw: true,
+    } );
+    flowerMaterial.alphaTest = 0.5;
+    var flower = new THREE.Mesh(flowerGeometry, flowerMaterial );
+    flower.position.set(-410, 120, -419);
+    flower.rotation.z = - Math.PI / 8;
+    scene.add(flower);            
 
     var treeGeometry = new THREE.PlaneGeometry( 344, 392 );
     var treeTexture = new THREE.TextureLoader().load( imagePrefix + "branch" + imageSuffix );
@@ -301,7 +400,7 @@ function init()
     var mouseSideGeometry = new THREE.CylinderGeometry( 24.5, 24.5, 8, 32, 2, true );
     var mouseSideMaterial = new THREE.MeshBasicMaterial( {color: 0x6fafbb} );
     var mouseSide = new THREE.Mesh( mouseSideGeometry, mouseSideMaterial );
-    mouseSide.position.set(-80, -260, 220);
+    mouseSide.position.set(-90, -260, 230);
     scene.add( mouseSide );
 
     var mouseTopGeometry = new THREE.PlaneGeometry( 49, 49 );
@@ -312,7 +411,7 @@ function init()
         overdraw: true,
     } );
     var mouseTop = new THREE.Mesh( mouseTopGeometry, mouseTopMaterial );
-    mouseTop.position.set(-80, -256, 220);
+    mouseTop.position.set(-90, -256, 230);
     mouseTop.rotation.x = -  Math.PI / 2;
     scene.add( mouseTop );
 
@@ -333,8 +432,8 @@ function init()
     var cdMaterial = new THREE.MeshBasicMaterial( {color: spineColor} );
     var cd = new THREE.Mesh( cdGeometry, cdMaterial );
     cd.rotation.x = -  Math.PI / 2;
-    cd.rotation.z = -  Math.PI / 8;
-    cd.position.set(40, -256, 220);
+    cd.rotation.z = -  Math.PI / 8 + Math.PI / 2;
+    cd.position.set(-50, -135, -300);
     scene.add(cd);
 
     var cdCoverGeometry = new THREE.PlaneGeometry( 75, 75);
@@ -345,14 +444,14 @@ function init()
     } );
     var cdCover = new THREE.Mesh( cdCoverGeometry, cdCoverMaterial );
     cdCover.rotation.x = -  Math.PI / 2;
-    cdCover.rotation.z =  - (Math.PI) - (Math.PI / 8) ;
-    cdCover.position.set(40, -250, 220);
+    cdCover.rotation.z =  - (Math.PI) - (Math.PI / 8) + Math.PI / 2;
+    cdCover.position.set(-50, -129, -300);
     scene.add(cdCover);
 
     var cd2 = new THREE.Mesh( cdGeometry.clone(), cdMaterial );
     cd2.rotation.x = -  Math.PI / 2;
-    cd2.rotation.z =  Math.PI / 8;
-    cd2.position.set(80, -245, 215);
+    cd2.rotation.z =  Math.PI / 8 + Math.PI / 2;
+    cd2.position.set(80, -135, -310);
     scene.add(cd2);
 
 
@@ -363,9 +462,46 @@ function init()
     } );
     var cdCover2 = new THREE.Mesh( cdCoverGeometry.clone(), cdCoverMaterial2 );
     cdCover2.rotation.x = -  Math.PI / 2;
-    cdCover2.rotation.z =  - (Math.PI) + (Math.PI / 8) ;
-    cdCover2.position.set(80, -239, 215);
+    cdCover2.rotation.z =  - (Math.PI) + (Math.PI / 8) + Math.PI / 2 ;
+    cdCover2.position.set(80, -129, -310);
     scene.add(cdCover2);    
+
+
+    var cd3 = new THREE.Mesh( cdGeometry.clone(), cdMaterial );
+    cd3.rotation.x = -  Math.PI / 2;
+    cd3.rotation.z =  Math.PI / 8 + Math.PI / 2;
+    cd3.position.set(100, -251, 210);
+    scene.add(cd3);
+
+
+    var cdCoverTexture3 = new THREE.TextureLoader().load( imagePrefix + "hatful" + imageSuffix );
+    var cdCoverMaterial3 = new THREE.MeshBasicMaterial( {
+        map: cdCoverTexture3,
+        overdraw: true,
+    } );
+    var cdCover3 = new THREE.Mesh( cdCoverGeometry.clone(), cdCoverMaterial3 );
+    cdCover3.rotation.x = -  Math.PI / 2;
+    cdCover3.rotation.z =  - (Math.PI) + (Math.PI / 8) + Math.PI / 1 ;
+    cdCover3.position.set(100, -245, 210);
+    scene.add(cdCover3);    
+
+    var cd4 = new THREE.Mesh( cdGeometry.clone(), cdMaterial );
+    cd4.rotation.x = -  Math.PI / 2;
+    cd4.rotation.z =  Math.PI / 8 + Math.PI / 2;
+    cd4.position.set(-350, -245,-50);
+    scene.add(cd4);
+
+
+    var cdCoverTexture4 = new THREE.TextureLoader().load( imagePrefix + "aeroplane" + imageSuffix );
+    var cdCoverMaterial4 = new THREE.MeshBasicMaterial( {
+        map: cdCoverTexture4,
+        overdraw: true,
+    } );
+    var cdCover4 = new THREE.Mesh( cdCoverGeometry.clone(), cdCoverMaterial4 );
+    cdCover4.rotation.x = -  Math.PI / 2;
+    cdCover4.rotation.z =  - (Math.PI) + (Math.PI / 8) + Math.PI / 1 ;
+    cdCover4.position.set(-350, -239,-50);
+    scene.add(cdCover4);       
 
     var pennantGeometry = new THREE.PlaneGeometry( 100, 179 );
     var pennantTexture = new THREE.TextureLoader().load( imagePrefix + "pennant" + imageSuffix );
@@ -379,6 +515,64 @@ function init()
     pennant.rotation.y =   Math.PI / 2;
     pennant.position.set(-599, 50, -220);
     scene.add(pennant);
+
+    var akiraGeometry = new THREE.PlaneGeometry( 300, 464 );
+    var akiraTexture = new THREE.TextureLoader().load( imagePrefix + "akira" + imageSuffix );
+    var akiraMaterial = new THREE.MeshBasicMaterial( {
+        map: akiraTexture,
+        transparent:true,
+        overdraw: true
+    } );   
+    var akira = new THREE.Mesh( akiraGeometry, akiraMaterial ); 
+    akira.rotation.y =   Math.PI / 2;
+    akira.position.set(-599, 210, 20);
+    scene.add(akira);
+
+
+
+    var bookCoverGeometry = new THREE.PlaneGeometry( 75, 136);
+    var bookCoverTexture = new THREE.TextureLoader().load( imagePrefix + "naked" + imageSuffix );
+    var bookCoverMaterial = new THREE.MeshBasicMaterial( {
+        map: bookCoverTexture,
+        overdraw: true,
+    } );
+    var bookCover = new THREE.Mesh( bookCoverGeometry, bookCoverMaterial );
+    bookCover.rotation.x = -  Math.PI / 2;
+    bookCover.position.set(-390, -238, 90);
+    bookCover.rotation.z = -2 * (Math.PI / 8) ;
+    scene.add(bookCover);
+
+
+    var bookSpineColor = 0xfbf3ae;
+    var bookGeometry = new THREE.BoxGeometry(75, 136, 13);
+    var bookMaterial = new THREE.MeshBasicMaterial( {color: bookSpineColor} );
+    var book = new THREE.Mesh( bookGeometry, bookMaterial );
+    book.rotation.x = -  Math.PI / 2;
+    book.position.set(-390, -245, 90);
+    book.rotation.z =  -2 * (Math.PI / 8) ;
+    scene.add(book);
+
+    // var book2CoverGeometry = new THREE.PlaneGeometry( 75, 136);
+    // var book2CoverTexture = new THREE.TextureLoader().load( imagePrefix + "bukowski" + imageSuffix );
+    // var book2CoverMaterial = new THREE.MeshBasicMaterial( {
+    //     map: book2CoverTexture,
+    //     overdraw: true,
+    // } );
+    // var book2Cover = new THREE.Mesh( book2CoverGeometry, book2CoverMaterial );
+    // book2Cover.rotation.x = -  Math.PI / 2;
+    // book2Cover.position.set(-350, -243, -50);
+    // book2Cover.rotation.z =  - (Math.PI / 4) ;
+    // scene.add(book2Cover);
+
+
+    // var book2SpineColor = 0xfbf3ae;
+    // var book2Geometry = new THREE.BoxGeometry(75, 136, 14);
+    // var book2Material = new THREE.MeshBasicMaterial( {color: book2SpineColor} );
+    // var book2 = new THREE.Mesh( book2Geometry, book2Material );
+    // book2.rotation.x = -  Math.PI / 2;
+    // book2.position.set(-350, -251,-50);
+    // book2.rotation.z =  - (Math.PI / 4) ;
+    // scene.add(book2);
 
     document.getElementById('reset').addEventListener('click', resetcamera);
     document.getElementById('zoom_in').addEventListener('click', zoomIn);
